@@ -12,6 +12,7 @@ const corsOption = {
 const app = express();
 app.use(morgan("dev")); 
 app.use(cors(corsOption));
+app.use(express.json());
 
 /* app.get('/', (req, res) => {
     res.send({ name: "테스트" })
