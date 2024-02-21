@@ -1,6 +1,13 @@
 import Board from "../models/board";
 
-export const boardList = (req,res) => res.send({ name: "list" });
+export const boardList = async (req,res) => {
+    try {
+        // await Board.find({})
+        return res.send({ name: "list" });
+    } catch(error) {
+        console.log(error)
+    }
+};
 export const boardWrite = async (req,res) => {
     try{
         console.log(req.body);

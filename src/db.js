@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 mongoose.connect(`${process.env.DB_URL}/board-express`); // /데이터베이스 이름
 
 const db = mongoose.connection;
