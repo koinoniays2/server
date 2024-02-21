@@ -1,5 +1,5 @@
 import express from "express";
-import { boardDelete, boardDetail, boardList, boardUpdate, boardWrite } from "../controllers/boardController";
+import { boardDelete, boardDetail, boardList, boardUpdate, boardWrite } from "../controllers/boardController.js";
 
 const boardRouter = express.Router();
 

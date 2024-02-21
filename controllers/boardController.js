@@ -1,4 +1,4 @@
-import Board from "../models/board";
+import Board from "../models/board.js";
 
 export const boardList = async (req,res) => {
     try {

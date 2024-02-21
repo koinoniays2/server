@@ -4,7 +4,7 @@ import "./db.js";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import boardRouter from "../router/boardRouter";
+import boardRouter from "../router/boardRouter.js";
 
 const corsOption = {
     origin: ["http://localhost:5173", "http://localhost:5172"]
