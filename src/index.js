@@ -16,7 +16,7 @@ app.use(cors(corsOption));
 }) */
 app.use("/board", boardRouter);
 
-const port = 3000;
-app.listen(port, () => {
-    console.log(`🔵 Sever : http://localhost:${port}`)
+const PORT = process.env.PORT; 
+app.listen(PORT, () => {
+    console.log(`🔵 Sever : http://localhost:${PORT}`)
 })
