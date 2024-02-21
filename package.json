@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
-    "prestart": "npm run build",
-    "build": "babel src -d build",
     "dev": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d build",
+    "start": "node build/index.js",
+    "prestart": "npm run build"
   },
   "author": "",
   "license": "ISC",

@@ -10,13 +10,11 @@ const corsOption = {
     origin: ["http://localhost:5173", "http://localhost:5172"]
 };
 const app = express();
+app.use(express.json());
 app.use(morgan("dev")); 
 app.use(cors(corsOption));
-app.use(express.json());
 
-/* app.get('/', (req, res) => {
-    res.send({ name: "테스트" })
-}) */
+app.get('/', (req, res) => { res.send({ name: "root" }) });
 app.use("/board", boardRouter);
 
 const PORT = process.env.PORT; 
