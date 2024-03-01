@@ -7,7 +7,7 @@ import cors from "cors";
 import boardRouter from "./router/boardRouter.js";
 
 const corsOption = {
-    origin: "*",
+    origin: ["http://koinonia.dothome.co.kr", "http://127.0.0.1:5500"]
 };
 const app = express();
 app.use(express.json());
