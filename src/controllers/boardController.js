@@ -44,7 +44,7 @@ export const boardUpdate = async (req, res) => {
         } = req;
     
         try {
-        const data = await Notice.findByIdAndUpdate(id, {
+        const data = await Board.findByIdAndUpdate(id, {
             title,
             description,
             writer,
