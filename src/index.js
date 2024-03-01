@@ -7,7 +7,7 @@ import cors from "cors";
 import boardRouter from "./router/boardRouter.js";
 
 const corsOption = {
-    origin: ["http://localhost:5173", "http://localhost:5172"]
+    origin: "*",
 };
 const app = express();
 app.use(express.json());
