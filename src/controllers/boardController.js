@@ -37,5 +37,21 @@ export const boardDetail = async (req,res) => {
         console.log(error);
     }
 };
-export const boardUpdate = (req,res) => res.send({name: "update"});
+export const boardUpdate = async (req, res) => {
+    const {
+        body: { title, description, writer },
+        params: { id },
+        } = req;
+    
+        try {
+        const data = await Notice.findByIdAndUpdate(id, {
+            title,
+            description,
+            writer,
+        });
+        res.send({ result: true, data });
+        } catch (error) {
+        console.log(error);
+        }
+    };
 export const boardDelete = (req,res) => res.send({name: "delete"});
