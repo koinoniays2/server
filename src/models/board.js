@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const boardSchema = new mongoose.Schema({
+    boardNumber: Number,
     title: String,
     description: String,
     createdAt: Date,
