@@ -14,11 +14,11 @@ export const boardWrite = async (req,res) => {
         const {title, description, writer} = req.body;
         // 현재까지의 글의 개수 가져오기
         const count = await Board.countDocuments();
-        const boardNumber = count + 1;
+        let boardNumber = count + 1;
         // 삭제되지 않은 가장 큰 번호 가져오기
         const lastBoard = await Board.findOne({}, {}, { sort: { 'boardNumber': -1 } });
-        if (lastBoard) {
-            boardNumber = Math.max(boardNumber, lastBoard.boardNumber + 1);
+        if (lastBoard && lastBoard.boardNumber >= boardNumber) {
+            boardNumber = lastBoard.boardNumber + 1;
         }
         const data = await Board.create({
             boardNumber,
