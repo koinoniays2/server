@@ -5,6 +5,7 @@ const boardSchema = new mongoose.Schema({
     title: String,
     description: String,
     createdAt: Date,
+    updatedAt: Date,
     writer: String
 })
 

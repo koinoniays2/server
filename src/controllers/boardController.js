@@ -1,8 +1,10 @@
 import Board from "../models/board.js";
 
 export const boardList = async (req,res) => {
+    const OFFSET = 0;
+    const LIMIT = 10;
     try {
-        const data = await Board.find({});
+        const data = await Board.find({}).sort({createdAt: -1}).limit(LIMIT).skip(OFFSET);
         return res.send({ name: "list", data });
     } catch(error) {
         console.log(error);
@@ -54,10 +56,20 @@ export const boardUpdate = async (req, res) => {
             title,
             description,
             writer,
+            updatedAt: Date.now()
         });
         res.send({ result: true, data });
         } catch (error) {
         console.log(error);
         }
     };
-export const boardDelete = (req,res) => res.send({name: "delete"});
+export const boardDelete = async (req,res) => {
+    const { id } = req.params;
+    try{
+        await Board.findByIdAndDelete(id);
+        res.send({ result: true });
+    } catch(error) {
+        console.log(error);
+        res.send({ result: false, error});
+    }
+};
