@@ -1,11 +1,13 @@
 import Board from "../models/board.js";
 
 export const boardList = async (req,res) => {
-    const OFFSET = 0;
     const LIMIT = 10;
+    const page = parseInt(req.query.page) || 1;
+    const skip = (page - 1) * LIMIT;
     try {
-        const data = await Board.find({}).sort({createdAt: -1}).limit(LIMIT).skip(OFFSET);
-        return res.send({ name: "list", data });
+        const total = await Board.countDocuments({}); 
+        const data = await Board.find({}).sort({createdAt: -1}).limit(LIMIT).skip(skip);
+        return res.send({ name: "list", data, total});
     } catch(error) {
         console.log(error);
     }
